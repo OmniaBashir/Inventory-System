@@ -42,15 +42,14 @@ function insertRecord(req,res){
     productList.paymentMethod = req.body.paymentMethod;
     productList.transactionDetails = req.body.transactionDetails;
 
-
     productList.save((err,doc) => {
         if(!err)
             res.redirect('products/list');
         else{
-                if(err.name == 'ValidationError') // validation 2
+                if(err.name == 'ValidationError')
                 { 
                     handleValidationError(err, req.body);
-                    res.render("product/addOrEdit" , {  // validation 4
+                    res.render("product/addOrEdit" , {
                         viewTitle : "Add New Product",
                         product: req.body
                     });
@@ -75,8 +74,6 @@ router.get('/list' , (req,res) => {
         }
     });
 });
-
-
 
 function handleValidationError(err,body){
     for(field in err.errors)
@@ -145,8 +142,6 @@ function handleValidationError(err,body){
     }
 }
 
-
-
 function updateRecord(req,res){
     products.findOneAndUpdate({_id: req.body._id} , req.body , {new:true} , (err,doc) => {
         if(!err) {
@@ -167,8 +162,6 @@ function updateRecord(req,res){
     });
 }
 
-
-
 router.get('/:id', (req, res) => {
     products.findById(req.params.id, (err, doc) => {
         if (!err) {
@@ -180,10 +173,6 @@ router.get('/:id', (req, res) => {
     });
 });
 
-
-
-
-
 router.get('/delete/:id', (req, res) => {
     products.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
@@ -193,6 +182,18 @@ router.get('/delete/:id', (req, res) => {
     });
 });
 
+// display data from mongoDB on view page
+// ERROR: display 5 forms, 4 forms are empty & display the correct record on the 4th form!
+router.get('/viewProduct/:id', (req, res) => {
+    products.findById(req.params.id, (err, doc) => {
+        if (!err) {
+            res.render("product/viewProduct", {
+                viewTitle: "View Product Details",
+                list: doc
+            });
+        }
+    });
+});
 
 // display data from mongoDB on view page
 // ERROR: display all the forms with all the records on the DB!
@@ -210,17 +211,3 @@ router.get('/delete/:id', (req, res) => {
 //         }
 //     });
 // });
-
-// // display data from mongoDB on view page
-// // ERROR: display 5 forms, 4 forms are empty & display the correct record on the 4th form!
-router.get('/viewProduct/:id', (req, res) => {
-    products.findById(req.params.id, (err, doc) => {
-        if (!err) {
-            res.render("product/viewProduct", {
-                viewTitle: "View Product Details",
-                list: doc
-            });
-        }
-    });
-});
-

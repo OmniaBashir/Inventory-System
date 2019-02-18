@@ -45,7 +45,7 @@ var productSchema = new mongoose.Schema({
         type: Number
     },
     // sku: {
-    //     type: Number  //6 digit auto-generated numerical key, generated in order (000001, 000002)
+    //     type: Number  
     // },
     // condition: {
     //     type: String,
@@ -148,7 +148,3 @@ productSchema.path('reserve').validate((val) => {
 //     amountReceivedRegex = /^[a-zA-Z0-9]+$/;
 //     return amountReceivedRegex.test(val);
 // }, 'Invalid amount received. Please write alphanumeric only');
-
-
-
-

@@ -9,162 +9,162 @@
 
 
 <form action="/products" method="POST" autocomplete="off">
+
     <input type="hidden" name="_id" value="{{product._id}}">
-     {{#each list}}
-    <div class="form-group" >
-        <label>Title</label>
-        <input type="text" class="form-control" name="title" placeholder="{{this.title}}"  value="{{product.title}}" maxlength="64" minlength="10">   
-        {{!-- validation 5 --}}
-        <div class="text-danger">
-            {{product.titleError}}
-        </div>
-    </div>
 
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label>Status</label>        
-            <select type="text" class="form-control" name="status" placeholder="{{this.status}}" value="{{product.status}}">
-                <option value="" disabled selected>Select Status</option>
-                <option value="pendingList">Pending List</option>
-                <option value="itemAvailable">Item Available</option>
-                <option value="itemSold">Item Sold</option>
-                <option value="pendingPayment">Pending Payment</option>
-                <option value="sellerPayoutCompleted">Seller Payout Completed</option>
-            </select>
-            {{!-- validation 5 --}}
+    {{#each list}}
+
+        <div class="form-group" >
+            <label>Title</label>
+            <input type="text" class="form-control" name="title" placeholder="{{this.title}}"  value="{{product.title}}" maxlength="64" minlength="10">   
             <div class="text-danger">
-                {{product.statusError}}
+                {{product.titleError}}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Status</label>        
+                <select type="text" class="form-control" name="status" placeholder="{{this.status}}" value="{{product.status}}">
+                    <option value="" disabled selected>Select Status</option>
+                    <option value="pendingList">Pending List</option>
+                    <option value="itemAvailable">Item Available</option>
+                    <option value="itemSold">Item Sold</option>
+                    <option value="pendingPayment">Pending Payment</option>
+                    <option value="sellerPayoutCompleted">Seller Payout Completed</option>
+                </select>
+                <div class="text-danger">
+                    {{product.statusError}}
+                </div>
+            </div>
+            
+            <div class="form-group col-md-6">
+                <label>SKU</label>
+            <input type="text" class="form-control" name="sku" placeholder="{{this.sku}}">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4" >
+                <label>Category</label>
+                <input type="text" class="form-control" name="category" placeholder="{{this.category}}">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>Condition</label>
+                <select type="text" class="form-control" name="condition" placeholder="{{this.condition}}" value="{{product.condition}}">
+                    <option value="" disabled selected>Select Condition</option>
+                    <option value="new">New</option>
+                    <option value="used">Used</option>
+                </select>
+                <div class="text-danger">
+                    {{product.conditionError}}
+                </div>       
+            </div>  
+            
+            <div class="form-group col-md-4">
+                <label>Quantity</label>
+                <input type="text" class="form-control" name="quantity" placeholder="{{this.quantity}}">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label>Client Code</label>
+                <input type="text" class="form-control" name="clientCode" placeholder="{{this.clientCode}}">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>Model Number</label>
+                <input type="text" class="form-control" name="modelNumber" placeholder="{{this.modelNumber}}">
+            </div>
+            
+            <div class="form-group col-md-4">
+                <label>Brand</label>
+                <input type="text" class="form-control" name="brand" placeholder="{{this.brand}}">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label>Description</label>
+                <input type="text" class="form-control" name="description" placeholder="{{this.description}}" minlength="10">
+            </div>
+
+            <div class="form-group col-md-4">
+            <label>Dimensions</label>
+                <input type="text" class="form-control" name="dimensions" placeholder="{{this.dimensions}}">
+            </div>
+            
+            <div class="form-group col-md-4">
+                <label>Weight</label>
+                <input type="text" class="form-control" name="weight" placeholder="{{this.weight}}">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label>Images</label>
+                <input type="text" class="form-control" name="images" placeholder="{{this.images}}">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label>Reserve</label>
+                <input type="text" class="form-control" name="reserve" placeholder="{{this.reserve}}">
+            </div>
+            
+            <div class="form-group col-md-4">
+                <label>Amount Received</label>
+                <input type="text" class="form-control" name="amountReceived" placeholder="{{this.amountReceived}}" value="{{product.amountReceived}}">
+                <div class="text-danger">
+                    {{product.amountReceivedError}}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6" >
+                <label>Listed Price</label>
+                <input type="text" class="form-control" name="listedPrice" placeholder="{{this.listedPrice}}">
+            </div>
+            
+            <div class="form-group col-md-6">
+                <label>Selling Price</label>
+                <input type="text" class="form-control" name="sellingPrice" placeholder="{{this.sellingPrice}}">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6" >
+                <label>Payment Method</label>
+                <select type="text" class="form-control" name="paymentMethod" placeholder="{{this.paymentMethod}}" value="{{product.paymentMethod}}">
+                    <option value="" disabled selected>Select Payment Method</option>
+                    <option value="wiretransfer">Wiretransfer</option>
+                    <option value="cash">Cash</option>
+                    <option value="paypal">Paypal</option>
+                    <option value="cheque">Cheque</option>
+                    <option value="creditCard">Credit Card</option>
+                </select>
+                <div class="text-danger">
+                    {{product.paymentMethodError}}
+                </div>
+            </div>
+            
+            <div class="form-group col-md-6">
+                <label>Transaction Details</label>
+                <input type="text" class="form-control" name="transactionDetails" placeholder="{{this.transactionDetails}}" value="{{product.transactionDetails}}">
+                <div class="text-danger">
+                    {{product.transactionDetails}}
+                </div> 
             </div>
         </div>
         
-        <div class="form-group col-md-6">
-            <label>SKU</label>
-        <input type="text" class="form-control" name="sku" placeholder="{{this.sku}}">
-        </div>
-    </div>
-
-<div class="form-row">
-        <div class="form-group col-md-4" >
-            <label>Category</label>
-            <input type="text" class="form-control" name="category" placeholder="{{this.category}}">
+        <div class="form-group">
+            <a class="btn btn-info" href="/products/viewProduct/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i> Edit</a>
+            <a class="btn btn-info" href="/products/viewProduct/{{this._id}}"><i class="fa fa-database fa-lg" aria-hidden="true"></i> Save</a>
+            <a class="btn btn-danger" href="/products/viewProduct/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i> Delete</a>
         </div>
 
-        <div class="form-group col-md-4">
-            <label>Condition</label>
-            <select type="text" class="form-control" name="condition" placeholder="{{this.condition}}" value="{{product.condition}}">
-                <option value="" disabled selected>Select Condition</option>
-                <option value="new">New</option>
-                <option value="used">Used</option>
-            </select>
-            {{!-- validation 5 --}}
-            <div class="text-danger">
-                {{product.conditionError}}
-            </div>       
-        </div>  
-        
-        <div class="form-group col-md-4">
-            <label>Quantity</label>
-            <input type="text" class="form-control" name="quantity" placeholder="{{this.quantity}}">
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label>Client Code</label>
-            <input type="text" class="form-control" name="clientCode" placeholder="{{this.clientCode}}">
-        </div>
-
-        <div class="form-group col-md-4">
-            <label>Model Number</label>
-            <input type="text" class="form-control" name="modelNumber" placeholder="{{this.modelNumber}}">
-        </div>
-        
-        <div class="form-group col-md-4">
-            <label>Brand</label>
-            <input type="text" class="form-control" name="brand" placeholder="{{this.brand}}">
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label>Description</label>
-            <input type="text" class="form-control" name="description" placeholder="{{this.description}}" minlength="10">
-        </div>
-
-        <div class="form-group col-md-4">
-           <label>Dimensions</label>
-            <input type="text" class="form-control" name="dimensions" placeholder="{{this.dimensions}}">
-        </div>
-        
-        <div class="form-group col-md-4">
-            <label>Weight</label>
-            <input type="text" class="form-control" name="weight" placeholder="{{this.weight}}">
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label>Images</label>
-            <input type="text" class="form-control" name="images" placeholder="{{this.images}}">
-        </div>
-
-        <div class="form-group col-md-4">
-            <label>Reserve</label>
-            <input type="text" class="form-control" name="reserve" placeholder="{{this.reserve}}">
-        </div>
-        
-        <div class="form-group col-md-4">
-            <label>Amount Received</label>
-            <input type="text" class="form-control" name="amountReceived" placeholder="{{this.amountReceived}}" value="{{product.amountReceived}}">
-            {{!-- validation 5 --}}
-            <div class="text-danger">
-                {{product.amountReceivedError}}
-            </div>
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-group col-md-6" >
-            <label>Listed Price</label>
-            <input type="text" class="form-control" name="listedPrice" placeholder="{{this.listedPrice}}">
-        </div>
-        
-        <div class="form-group col-md-6">
-            <label>Selling Price</label>
-            <input type="text" class="form-control" name="sellingPrice" placeholder="{{this.sellingPrice}}">
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-group col-md-6" >
-            <label>Payment Method</label>
-            <select type="text" class="form-control" name="paymentMethod" placeholder="{{this.paymentMethod}}" value="{{product.paymentMethod}}">
-                <option value="" disabled selected>Select Payment Method</option>
-                <option value="wiretransfer">Wiretransfer</option>
-                <option value="cash">Cash</option>
-                <option value="paypal">Paypal</option>
-                <option value="cheque">Cheque</option>
-                <option value="creditCard">Credit Card</option>
-            </select>
-            {{!-- validation 5 --}}
-            <div class="text-danger">
-                {{product.paymentMethodError}}
-            </div>
-        </div>
-        
-        <div class="form-group col-md-6">
-            <label>Transaction Details</label>
-            <input type="text" class="form-control" name="transactionDetails" placeholder="{{this.transactionDetails}}" value="{{product.transactionDetails}}">
-            {{!-- validation 5 --}}
-            <div class="text-danger">
-                {{product.transactionDetails}}
-            </div> 
-        </div>
-    </div>
-    <div class="form-group">
-        <a class="btn btn-info" href="/products/viewProduct/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i> Edit</a>
-        <a class="btn btn-info" href="/products/viewProduct/{{this._id}}"><i class="fa fa-database fa-lg" aria-hidden="true"></i> Save</a>
-        <a class="btn btn-danger" href="/products/viewProduct/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i> Delete</a>
-    </div>
     {{/each}}
+
 </form> 
