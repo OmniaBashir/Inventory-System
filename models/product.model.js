@@ -66,7 +66,6 @@ var productSchema = new mongoose.Schema({
     //     type: String,  
     //     required: 'You have to choose status'
     // },
-
 });
 
 
